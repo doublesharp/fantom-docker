@@ -8,8 +8,8 @@ set -e
 info "🔑 configuring cloudflare secrets"
 mkdir -p /root/.secrets
 cat <<CLOUDFLARE_CONFIG >~/.secrets/cloudflare.ini
-dns_cloudflare_email="$CLOUDFLARE_EMAIL"
-dns_cloudflare_api_key="$CLOUDFLARE_API_KEY"
+dns_cloudflare_email=$CLOUDFLARE_EMAIL
+dns_cloudflare_api_key=$CLOUDFLARE_API_KEY
 CLOUDFLARE_CONFIG
 
 # make sure they are hidden, the api key is more powerful than a password!
@@ -30,6 +30,7 @@ CERTBOT_POST_HOOK
 chmod +x "$POST_HOOK_PATH"
 
 if [ ! -f "/etc/nginx/ssl/$DOMAIN-fullchain.pem" ]; then
+  info "✨ generating ssl certificate"
   # generate the certificate
   certbot certonly \
     --quiet \
