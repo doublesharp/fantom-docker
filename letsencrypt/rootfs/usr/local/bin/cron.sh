@@ -2,9 +2,9 @@
 
 . /usr/local/bin/helper-functions
 
-info '🗄️ Installing Database cron jobs'
+info '🗄️ installing Database cron jobs'
 crontab /initjobs.d/jobs.txt
 
 # start cron
-info '⏰ Starting crond'
+info '⏰ starting crond'
 /usr/sbin/crond -f -l 2
