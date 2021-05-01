@@ -37,6 +37,7 @@ services:
     restart: always
     volumes:
       - ./volumes/ssl:/etc/nginx/ssl
+      - letsencrypt:/etc/letsencrypt
     env_file:
       - .env
     environment:
@@ -64,3 +65,4 @@ services:
 volumes:
   fantom: {}
   genesis: {}
+  letsencrypt: {}

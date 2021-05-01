@@ -29,7 +29,7 @@ CERTBOT_POST_HOOK
 # make post hook executable
 chmod +x "$POST_HOOK_PATH"
 
-if [ ! -f "/etc/nginx/ssl/$DOMAIN-fullchain.pem" ]; then
+if [ ! -d "/etc/letsencrypt/live" ]; then
   info "✨ generating ssl certificate"
   # generate the certificate
   certbot certonly \
