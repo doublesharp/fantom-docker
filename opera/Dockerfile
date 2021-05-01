@@ -27,7 +27,7 @@ RUN apk add --no-cache ca-certificates
 
 ENV FANTOM_NETWORK=opera
 ENV FANTOM_GENESIS="mainnet.g"
-ENV FANTOM_API=eth,ftm,debug,admin,web3,personal,net,txpool
+ENV FANTOM_API=eth,ftm,net,web3
 ENV FANTOM_VERBOSITY=2
 ENV FANTOM_CACHE=4096
 
