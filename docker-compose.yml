@@ -10,11 +10,11 @@ services:
       [
         'sh',
         '-c',
-        'wait-for.sh $${FANTOM_HOSTNAME:-opera}:18545 -t 600 -- run.sh',
+        'wait-for.sh $${FANTOM_HOSTNAME:-fantom}:18545 -t 600 -- run.sh',
       ]
     restart: always
     depends_on:
-      - opera
+      - fantom
     ports:
       - 443:443
       - 80:80
@@ -28,7 +28,7 @@ services:
       INGRESS_HOSTNAME: ${FANTOM_HOSTNAME:-fantom.doublesharp.com}
       SSL_CERT: ${FANTOM_HOSTNAME:-fantom.doublesharp.com}-fullchain.pem
       SSL_KEY: ${FANTOM_HOSTNAME:-fantom.doublesharp.com}-privkey.pem
-      FANTOM_HOST: ${FANTOM_HOST:-opera}
+      FANTOM_HOST: ${FANTOM_HOST:-fantom}
 
   letsencrypt:
     image: 'letsencrypt'
@@ -45,7 +45,7 @@ services:
       CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
       CLOUDFLARE_API_KEY: ${CLOUDFLARE_API_KEY}
 
-  opera:
+  fantom:
     image: 'opera'
     # image: doublesharp/fantom-opera:latest
     build:
