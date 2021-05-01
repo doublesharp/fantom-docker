@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+[[ $BASH_DEBUG ]] && set -x
+
+# Color Palette
+RESET='\033[0m'
+BOLD='\033[1m'
+
+## Foreground
+BLACK='\033[38;5;0m'
+RED='\033[38;5;1m'
+GREEN='\033[38;5;2m'
+YELLOW='\033[38;5;3m'
+BLUE='\033[38;5;4m'
+MAGENTA='\033[38;5;5m'
+CYAN='\033[38;5;6m'
+WHITE='\033[38;5;7m'
+
+## Background
+ON_BLACK='\033[48;5;0m'
+ON_RED='\033[48;5;1m'
+ON_GREEN='\033[48;5;2m'
+ON_YELLOW='\033[48;5;3m'
+ON_BLUE='\033[48;5;4m'
+ON_MAGENTA='\033[48;5;5m'
+ON_CYAN='\033[48;5;6m'
+ON_WHITE='\033[48;5;7m'
+
+MODULE="$(basename $0)"
+
+log() {
+  echo -e "${APP_DEBUG:+${CYAN}${MODULE} ${MAGENTA}$(date "+%T.%2N ")}${RESET}${@}" >&2
+}
+
+info() {
+  log "${GREEN}INFO ${RESET} ==> ${@}"
+}
+
+warn() {
+  log "${YELLOW}WARN ${RESET} ==> ${@}"
+}
+
+error() {
+  log "${RED}ERROR${RESET} ==> ${@}"
+}
+
+print_welcome_page() {
+  if [ -z "$DISABLE_WELCOME_MESSAGE" ]; then
+    if [ -n "$DOCKER_APP_NAME" ]; then
+      print_image_welcome_page
+    fi
+  fi
+}
+
+# Prints the welcome page for this Docker image
+print_image_welcome_page() {
+  log ""
+  log "${BOLD}Welcome to the ${DOCKER_APP_NAME} container${RESET}"
+  log ""
+}
+
+function runScript {
+  if [[ -f $1 ]]; then
+    $1
+  fi
+}
+export -f runScript

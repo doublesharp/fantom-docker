@@ -1,8 +1,3 @@
-/.DS_Store
-/.env
-/docker-compose.yml
-/ingress
-/letsencrypt
-/opera
-/volumes
-/wait-for.sh
+.DS_Store
+.env
+/volumes/ssl/*.pem

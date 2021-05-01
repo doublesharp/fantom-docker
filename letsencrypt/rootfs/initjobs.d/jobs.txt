@@ -1,0 +1,1 @@
+30 3 * * * /usr/bin/certbot renew --quiet --post-hook /usr/local/bin/certbot-post-hook > /dev/null 2>&1
