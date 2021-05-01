@@ -62,6 +62,8 @@ services:
     volumes:
       - fantom:/root/.opera
       - genesis:/genesis
+    env_file:
+      - .env
     environment:
       FANTOM_HOSTNAME: ${FANTOM_HOSTNAME:-fantom.doublesharp.com}
       FANTOM_VERBOSITY: 3
