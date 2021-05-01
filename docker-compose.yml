@@ -66,7 +66,7 @@ services:
       - .env
     environment:
       FANTOM_HOSTNAME: ${FANTOM_HOSTNAME:-fantom.doublesharp.com}
-      FANTOM_VERBOSITY: 3
+      FANTOM_VERBOSITY: ${FANTOM_VERBOSITY:-3}
 
 volumes:
   fantom: {}
