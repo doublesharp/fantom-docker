@@ -1,4 +1,4 @@
-# fantom-opera-docker
+# fantom-docker
 Docker image for Fantom Opera full node
 
 create a `.env` file and set:
@@ -19,11 +19,11 @@ docker-compose down
 docker-compose logs -f
  
 # start a shell in a new container with the same data volume
-docker-compose run opera ash
+docker-compose run fantom ash
 
 # attach to the go-opera json interface
-docker-compose run opera opera attach
+docker-compose run fantom opera attach
  
 # connect to the container
-docker exec -it $(docker ps --filter "name=opera" -q) ash
+docker exec -it $(docker ps --filter "name=fantom" -q) ash
 ```
