@@ -1,4 +1,4 @@
-FROM golang:1.16-alpine3.13 as build-stage
+FROM alpine:3.13 as build-stage
 
 ENV FANTOM_NETWORK=opera
 ENV GITHUB_BRANCH=release/1.0.0-rc.1
@@ -8,7 +8,7 @@ ENV GITHUB_DIR=go-${FANTOM_NETWORK}
 RUN set -xe; \
   apk add --no-cache --virtual .build-deps \
   # get the build dependencies for go
-  make gcc musl-dev linux-headers git; \
+  make gcc go musl-dev linux-headers git; \
   # install fantom client from github
   mkdir -p ${GOPATH}; cd ${GOPATH}; \
   git clone --single-branch --branch ${GITHUB_BRANCH} ${GITHUB_URL}; cd ${GITHUB_DIR}; \
