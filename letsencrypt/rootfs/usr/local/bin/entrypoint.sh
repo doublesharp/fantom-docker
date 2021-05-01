@@ -31,6 +31,7 @@ chmod +x "$POST_HOOK_PATH"
 
 if [ ! -d "/etc/letsencrypt/live" ]; then
   info "✨ generating ssl certificate"
+  set -x
   # generate the certificate
   certbot certonly \
     --quiet \
@@ -44,6 +45,7 @@ if [ ! -d "/etc/letsencrypt/live" ]; then
     -d $DOMAIN
   # run the post hook
   certbot-post-hook
+  set +x
 fi
 
 if [[ "" == "$@" ]]; then

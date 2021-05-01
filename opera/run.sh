@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
-set -e
-
 # start opera with genesis file
-echo "starting opera"
+echo "starting fantom opera"
+
+set -ex
+
 opera \
   --http \
   --http.addr "0.0.0.0" \

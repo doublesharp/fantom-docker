@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo "📝 Merging environment variables to configuration"
 
 for f in /usr/nginx/conf.d/*; do
