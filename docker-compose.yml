@@ -54,11 +54,11 @@ services:
     ports:
       - '5050:5050'
       - '5050:5050/udp'
-      - '18545:18545'
     volumes:
       - fantom:/root/.opera
       - genesis:/genesis
     environment:
+      FANTOM_HOSTNAME: ${FANTOM_HOSTNAME:-fantom.doublesharp.com}
       FANTOM_VERBOSITY: 3
 
 volumes:

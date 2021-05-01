@@ -8,6 +8,7 @@ opera \
   --http \
   --http.addr "0.0.0.0" \
   --http.api "${FANTOM_API}" \
+  --http.vhosts "${FANTOM_HOSTNAME}" \
   --nousb \
   --verbosity ${FANTOM_VERBOSITY} \
   --cache ${FANTOM_CACHE} \
