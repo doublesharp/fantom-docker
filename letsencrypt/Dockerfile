@@ -7,12 +7,10 @@ RUN set -xe; \
   # install build dependencies
   apk add --no-cache --virtual .build-deps \
   gcc linux-headers libffi-dev musl-dev rust cargo openssl-dev python3-dev; \
-  # update pip, acme, 
-  pip install --upgrade pip acme; \
-  # install certbot/cloudflare 
-  pip install certbot-dns-cloudflare; \
+  # update pip, acme, certbot/cloudflare 
+  pip install --upgrade --no-cache-dir pip acme certbot-dns-cloudflare; \
   # remove build dependencies
-  apk del .build-deps; \
+  apk del .build-deps; rm -rf /root/.cargo /root/.cache/pip; \
   # turn on cron service
   rc-update add crond;
 
