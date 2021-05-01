@@ -5,6 +5,10 @@ ENV GITHUB_BRANCH=release/1.0.0-rc.1
 ENV GITHUB_URL=https://github.com/Fantom-foundation/go-${FANTOM_NETWORK}.git
 ENV GITHUB_DIR=go-${FANTOM_NETWORK}
 
+ENV GOROOT=/usr/lib/go 
+ENV GOPATH=/go 
+ENV PATH=$GOROOT/bin:$GOPATH/bin:/build:$PATH
+
 RUN set -xe; \
   apk add --no-cache --virtual .build-deps \
   # get the build dependencies for go
