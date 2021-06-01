@@ -1,6 +1,6 @@
 #!/usr/bin/env ash
 
-set -ex
+set -e
 
 # download the genesis file
 if [ -f "/genesis/${FANTOM_GENESIS}" ]; then
