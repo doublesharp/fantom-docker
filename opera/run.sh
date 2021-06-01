@@ -3,7 +3,7 @@
 # start opera with genesis file
 echo "starting fantom opera"
 
-set -ex
+set -e
 
 opera \
   --http \
@@ -11,6 +11,6 @@ opera \
   --http.api "${FANTOM_API}" \
   --http.vhosts "${FANTOM_HOSTNAME}" \
   --nousb \
-  --verbosity ${FANTOM_VERBOSITY} \
-  --cache ${FANTOM_CACHE} \
-  --genesis /genesis/${FANTOM_GENESIS}
+  --verbosity "${FANTOM_VERBOSITY}" \
+  --cache "${FANTOM_CACHE}" \
+  --genesis "/genesis/${FANTOM_GENESIS}"
