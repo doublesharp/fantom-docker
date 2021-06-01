@@ -4,7 +4,7 @@ set -e
 
 . /usr/local/bin/helper-functions
 
-info '🗄️  installing Database cron jobs'
+info '🗄️  installing cron jobs'
 crontab /initjobs.d/jobs.txt
 
 # start cron
