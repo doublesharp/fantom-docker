@@ -9,6 +9,7 @@ opera \
   --http \
   --http.addr "0.0.0.0" \
   --http.api "${FANTOM_API}" \
+  --http.corsdomain "*" \
   --http.vhosts "${FANTOM_HOSTNAME}" \
   --nousb \
   --verbosity "${FANTOM_VERBOSITY}" \
